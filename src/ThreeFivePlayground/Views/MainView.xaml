@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="ThreeFivePlayground.Views.MainView"
+    Title="3.5.0"> <!-- New Toolbar a11y support-->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem 
+            Text="Information"
+            Icon="information.png" 
+            AutomationProperties.Name="Information Button"
+            AutomationProperties.HelpText="Tap here to get more information about the sample."/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <Button
+                Text="BindableLayout"
+                Command="{Binding BindableLayoutCommand}"/>
+            <Button
+                Text="ScrollBar Visibility"
+                Command="{Binding ScrollBarVisibilityCommand}"/>
+            <Button
+                Text="SwitchCell OnColor"
+                Command="{Binding SwitchCellOnColorCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

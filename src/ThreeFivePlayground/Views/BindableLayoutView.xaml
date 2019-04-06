@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="ThreeFivePlayground.Views.BindableLayoutView"
+    xmlns:styles="clr-namespace:ThreeFivePlayground.Styles"
+    Title="Bindable Layout">
+    <ContentPage.Resources> 
+        <StyleSheet Source="/Styles/GalleryStyles.css" />
+        <ResourceDictionary>
+            
+            <Style x:Key="GalleryStyle" TargetType="FlexLayout">
+                <Setter Property="Direction" Value="Row"/>
+                <Setter Property="Wrap" Value="Wrap"/>
+                <Setter Property="AlignItems" Value="Stretch"/>
+                <Setter Property="AlignContent" Value="Start"/>
+            </Style>
+            
+            <styles:GalleryItemTemplateSelector x:Key="GalleryItemTemplateSelector">
+                <styles:GalleryItemTemplateSelector.MediumGalleryItemTemplate>
+                    <DataTemplate>
+                        <Image 
+                            BackgroundColor="LightGray"
+                            Source="{Binding Picture}"
+                            Aspect="AspectFill"
+                            StyleClass="photo, medium"/>
+                    </DataTemplate>
+                </styles:GalleryItemTemplateSelector.MediumGalleryItemTemplate>
+                <styles:GalleryItemTemplateSelector.BigGalleryItemTemplate>
+                    <DataTemplate>
+                        <Image
+                            BackgroundColor="LightGray"
+                            Source="{Binding Picture}"
+                            Aspect="AspectFill"
+                            StyleClass="photo, big"/>
+                    </DataTemplate>
+                </styles:GalleryItemTemplateSelector.BigGalleryItemTemplate>
+                <styles:GalleryItemTemplateSelector.GalleryItemTemplate>
+                    <DataTemplate>
+                        <Image  
+                            BackgroundColor="LightGray"
+                            Source="{Binding Picture}" 
+                            Aspect="AspectFill"
+                            StyleClass="photo"/>
+                    </DataTemplate>
+                </styles:GalleryItemTemplateSelector.GalleryItemTemplate>
+            </styles:GalleryItemTemplateSelector>
+            
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+          <StackLayout>        
+            <Label 
+                Text="Bindable Repeater Control = Bindable Layout"
+                Margin="6, 12, 6, 0"/>
+            <BoxView 
+                BackgroundColor="Black" 
+                Margin="0,0,0,12" 
+                HeightRequest="1"/>       
+            <FlexLayout
+                BindableLayout.ItemsSource="{Binding Gallery}"
+                BindableLayout.ItemTemplateSelector="{StaticResource GalleryItemTemplateSelector}"
+                Style="{StaticResource GalleryStyle}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
