@@ -2,7 +2,7 @@
 
 **Xamarin.Forms** sample to show the main features of **3.5** version.
 
-The sample is available for three platforms:
+The sample is available for two platforms:
 
 - iOS
 - Android
